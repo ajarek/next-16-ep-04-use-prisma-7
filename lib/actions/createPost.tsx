@@ -1,8 +1,13 @@
 import { refresh, revalidatePath } from "next/cache"
 import prisma from "../db"
 
-export const createPost = async ({ title, content }: { title: string, content: string }) => {
-
+export const createPost = async ({
+  title,
+  content,
+}: {
+  title: string
+  content: string
+}) => {
   if (!title || !content) {
     throw new Error("Title and content are required")
   }
@@ -13,7 +18,7 @@ export const createPost = async ({ title, content }: { title: string, content: s
         content,
       },
     })
-    
+
     refresh()
     revalidatePath("/")
     return newPost
