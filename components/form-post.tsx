@@ -36,7 +36,7 @@ const FormPost = ({ submitAction, initialData }: FormPostProps) => {
       />
       <button
         type='submit'
-        className='bg-blue-500 text-white px-2 py-1 cursor-pointer'
+        className='bg-blue-600 text-white px-2 py-1 cursor-pointer'
       >
         {initialData ? "Update" : "Create"} Post
       </button>
