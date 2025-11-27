@@ -3,6 +3,13 @@ import FormPost from "@/components/form-post"
 import { getPosts } from "@/lib/actions/getPosts"
 import Link from "next/link"
 
+type Posts = {
+    id: number;
+    title: string;
+    content: string;
+    createdAt: Date;
+}[]
+
 export default async function Home() {
   const posts = await getPosts()
   return (
@@ -11,7 +18,7 @@ export default async function Home() {
       <FormPost />
 
       <ul>
-        {posts.map((p) => (
+        {posts.map((p: Posts[number]) => (
           <li
             key={p.id}
             className='flex items-center justify-between gap-4 border-2 p-2'
