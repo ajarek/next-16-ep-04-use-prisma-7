@@ -1,4 +1,5 @@
-import { refresh, revalidatePath } from "next/cache"
+"use server"
+import { revalidateTag } from "next/cache"
 import prisma from "../db"
 
 export const createPost = async ({
@@ -19,8 +20,7 @@ export const createPost = async ({
       },
     })
 
-    refresh()
-    revalidatePath("/")
+    revalidateTag("posts", "posts")
     return newPost
   } catch (error) {
     console.error("Error creating post:", error)

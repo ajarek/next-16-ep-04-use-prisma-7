@@ -1,5 +1,5 @@
 import prisma from "../db"
-import { revalidatePath } from "next/cache"
+import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
 export const updatePost = async (
@@ -17,6 +17,6 @@ export const updatePost = async (
       content,
     },
   })
-  revalidatePath("/")
+  revalidateTag("posts", "posts")
   redirect("/")
 }
