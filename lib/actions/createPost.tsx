@@ -20,7 +20,7 @@ export const createPost = async ({
       },
     })
 
-    revalidateTag("posts", "posts")
+    revalidateTag("posts", { expire: 0 })
     return newPost
   } catch (error) {
     console.error("Error creating post:", error)

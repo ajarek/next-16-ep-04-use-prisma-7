@@ -17,6 +17,6 @@ export const updatePost = async (
       content,
     },
   })
-  revalidateTag("posts", "posts")
+  revalidateTag("posts", { expire: 0 })
   redirect("/")
 }
